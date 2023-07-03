@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class QuizUI : MonoBehaviour
@@ -12,8 +11,19 @@ public class QuizUI : MonoBehaviour
     [SerializeField] private VideoPlayer questionVideo;
     [SerializeField] private AudioSource questionAudio;
     [SerializeField] private TMP_Text qText;
-
+    [SerializeField] private GameObject audioButton;
+    [SerializeField] private Slider questSlider;
+    private double timer = 10;
     Questions question;
+    public static float questSliderValue = 1;
+
+
+    private void Update()
+    {
+        questSliderValue = questSlider.value;
+        questionAudio.volume = questSliderValue;
+        timer += Time.deltaTime;
+    }
 
     public void SetContentQuestion(Questions question)
     {
@@ -39,29 +49,41 @@ public class QuizUI : MonoBehaviour
                 break;
             case QuestionType.AUDIO:
                 QuestionContent();
+                qText.transform.localPosition = new Vector3(0f, 122f, 0f);
                 questionAudio.transform.gameObject.SetActive(true);
+                audioButton.SetActive(true);
                 questionAudio.clip = question.questionAudio;
-                StartCoroutine(PlayAudio());
+                PlayAudio();
                 break;
         }
 
     }
 
-    IEnumerator PlayAudio()
+    public void PlayAudio()
     {
-        if (question.questionType == QuestionType.AUDIO)
+        if (timer > questionAudio.clip.length)
         {
             questionAudio.PlayOneShot(question.questionAudio);
-
-            yield return new WaitForSeconds(question.questionAudio.length + 1f);
-
-            StartCoroutine(PlayAudio());
-        } else
-        {
-            StopCoroutine(PlayAudio());
-            yield return null;
+            timer = 0;
         }
+        
     }
+
+    //IEnumerator PlayAudio()
+    //{
+    //    if (question.questionType == QuestionType.AUDIO)
+    //    {
+    //        questionAudio.PlayOneShot(question.questionAudio);
+
+    //        yield return new WaitForSeconds(question.questionAudio.length + 1f);
+
+    //        StartCoroutine(PlayAudio());
+    //    } else
+    //    {
+    //        StopCoroutine(PlayAudio());
+    //        yield return null;
+    //    }
+    //}
 
     void QuestionContent()
     {
@@ -69,6 +91,7 @@ public class QuizUI : MonoBehaviour
         questionImage.transform.gameObject.SetActive(false);
         questionVideo.transform.gameObject.SetActive(false);
         questionAudio.transform.gameObject.SetActive(false);
+        audioButton.SetActive(false);
     }
 
 }
