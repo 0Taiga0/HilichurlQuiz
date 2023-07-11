@@ -11,28 +11,49 @@ public class FinalResult : MonoBehaviour
 {
     [SerializeField] private ResultDataScriptable resultDataScriptable;
     [SerializeField] private TMP_Text finalText;
+    [SerializeField] private TMP_Text finalName;
     [SerializeField] private Image finalImage;
-    private static int[] answers;
+    [SerializeField] private AudioSource finalSound;
+    [SerializeField] private AudioClip clip;
+    private int answersTrue = 0;
     private List<Results> res;
     private Results currentResult;
-    private double answerSum = 0;
+
+
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            res = resultDataScriptable.results;
-            SetResult();
-        }
+        finalSound.PlayOneShot(clip);
+        res = resultDataScriptable.results;
+        SetResult();
+
     }
 
-    public void SetAnswers(List<int> answers1) { answers = answers1.ToArray(); }
+    public void SetTrue(int answersTrue1) { answersTrue = answersTrue1; }
 
     public void SetResult()
     {
-        answerSum = (double)answers.Sum() / 6;
-        currentResult = res[(int)Math.Floor(answerSum)];
+        if (answersTrue < 5)
+        {
+            currentResult = res[0];
+        } else if (answersTrue < 10)
+        {
+            currentResult = res[1];
+        } else if (answersTrue < 13)
+        {
+            currentResult = res[2];
+        } else if (answersTrue < 16)
+        { 
+            currentResult = res[3]; 
+        } else if (answersTrue < 19)
+        {
+            currentResult = res[4];
+        } else
+        {
+            currentResult = res[5];
+        }
         finalImage.sprite = currentResult.sprite;
+        finalName.text = currentResult.name;
         StartCoroutine(TextCoroutine());
     }
 
@@ -43,7 +64,7 @@ public class FinalResult : MonoBehaviour
         foreach (char abs in currentResult.res)
         {
             finalText.text += abs;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.03f);
         }
 
     }

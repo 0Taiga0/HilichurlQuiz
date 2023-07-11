@@ -38,8 +38,12 @@ public class AudioController : MonoBehaviour
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
         source = objs[0].GetComponent<AudioSource>();
+        source.loop = true;
         if (objs.Length == 1 && SceneManager.GetActiveScene().buildIndex == 0)
-            source.PlayOneShot(clip);
+        {
+            source.clip = clip;
+            source.Play();
+        }
         for (int i = 1; i < objs.Length; i++)
         {
             Destroy(objs[i].gameObject);

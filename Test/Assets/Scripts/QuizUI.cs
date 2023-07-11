@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
-using System.Collections;
 
 public class QuizUI : MonoBehaviour
 {
@@ -53,6 +52,7 @@ public class QuizUI : MonoBehaviour
                 questionAudio.transform.gameObject.SetActive(true);
                 audioButton.SetActive(true);
                 questionAudio.clip = question.questionAudio;
+                timer = 10;
                 PlayAudio();
                 break;
         }
@@ -87,7 +87,7 @@ public class QuizUI : MonoBehaviour
 
     void QuestionContent()
     {
-        qText.transform.localPosition = new Vector3(0f, 185f, 0f);
+        qText.transform.localPosition = new Vector3(0f, 130f, 0f);
         questionImage.transform.gameObject.SetActive(false);
         questionVideo.transform.gameObject.SetActive(false);
         questionAudio.transform.gameObject.SetActive(false);

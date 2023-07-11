@@ -8,6 +8,8 @@ public class Questions {
     public Sprite questionImg;
     public AudioClip questionAudio;
     public VideoClip questionVideo;
+    public string trueAnswer;
+    public string annotation;
     public string[] answers = new string[4];
 }
 
