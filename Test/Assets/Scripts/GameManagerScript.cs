@@ -106,9 +106,14 @@ public class GameManagerScript : MonoBehaviour
 
     }
 
-    public void btnTest(TMP_Text answer)
+    public void AudioButton()
     {
         clickButtonSource.PlayOneShot(clickButtonSound);
+    }
+
+    public void btnTest(TMP_Text answer)
+    {
+        AudioButton();
         if (active == false)
         {
             if (answer.text == currentQuestion.answers[0])

@@ -7,9 +7,7 @@ public class AudioController : MonoBehaviour
     [SerializeField] private Sprite audioOn;
     [SerializeField] private Sprite audioOff;
     [SerializeField] private GameObject audioButton;
-
     [SerializeField] private Slider slider;
-
     [SerializeField] private AudioClip clip;
     private AudioSource source;
 

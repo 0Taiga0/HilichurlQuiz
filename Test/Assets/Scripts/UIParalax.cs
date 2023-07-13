@@ -1,24 +1,16 @@
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class UIParalax : MonoBehaviour
 {
 
-    private Vector3 pz;
-    private Vector3 StartPos;
+    private Vector2 pz;
 
     public float modifier;
-
-    void Start()
-    {
-        StartPos = transform.position;
-    }
 
     void Update()
     {
         var pz = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        pz.z = 0;
-        gameObject.transform.position = pz;
-        transform.position = new Vector3(StartPos.x + (pz.x * modifier), StartPos.y + (pz.y * modifier), 0);
+        transform.position = new Vector2(Screen.width / 2 + (pz.x * modifier), Screen.height / 2 + (pz.y * modifier));
     }
-
 }
