@@ -7,4 +7,5 @@ public class StartQuiz : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
 }

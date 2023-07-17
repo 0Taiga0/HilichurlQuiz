@@ -3,9 +3,11 @@ using TMPro;
 using System.Collections.Generic;
 using System.Collections;
 using Unity.VisualScripting;
+using YG;
 
 public class GameManagerScript : MonoBehaviour
 {
+
     [SerializeField] private QuizUI quizUIScript;
     [SerializeField] private QuizDataScriptable quizDataScriptable;
     [SerializeField] private FinalResult fr;
@@ -18,6 +20,8 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject continueButton;
     [SerializeField] GameObject finalRes;
     [SerializeField] GameObject mainCanvas;
+
+
     private List<Questions> questionsList;
     private Questions currentQuestion;
     private int countQuestions = 1;
@@ -27,7 +31,9 @@ public class GameManagerScript : MonoBehaviour
     private bool coroutineText= false;
 
 
+
     void Start() {
+
         counter.text = countQuestions.ToString() + "/20";
         finalRes.SetActive(false);
         mainCanvas.SetActive(true);
@@ -42,19 +48,12 @@ public class GameManagerScript : MonoBehaviour
 
     }
 
-    public void Update()
-    {
-        QuizEnd();
-    }
 
     public void QuizEnd()
     {
+        mainCanvas.SetActive(false);
+        finalRes.SetActive(true);
 
-        if (counter.transform.position.y < -118.285)
-        {
-            mainCanvas.SetActive(false);
-            finalRes.SetActive(true);
-        }
     }
 
     public void SetQuestion()
@@ -66,6 +65,7 @@ public class GameManagerScript : MonoBehaviour
             fr.SetTrue(countTrueAnswers);
             counter.GetComponentInParent<Animator>().SetTrigger("End");
             questionText.GetComponentInParent<Animator>().SetTrigger("End");
+            return;
         }
         else
         {

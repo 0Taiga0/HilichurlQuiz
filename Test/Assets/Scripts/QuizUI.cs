@@ -33,7 +33,7 @@ public class QuizUI : MonoBehaviour
         {
             case QuestionType.TEXT:
                 QuestionContent();
-                qText.transform.localPosition = new Vector3(0f, 80f, 0f);
+                qText.transform.localPosition = new Vector3(0f, 385f, 0f);
                 break;
             case QuestionType.IMAGE:
                 QuestionContent();
@@ -48,7 +48,7 @@ public class QuizUI : MonoBehaviour
                 break;
             case QuestionType.AUDIO:
                 QuestionContent();
-                qText.transform.localPosition = new Vector3(0f, 122f, 0f);
+                qText.transform.localPosition = new Vector3(0f, 310f, 0f);
                 questionAudio.transform.gameObject.SetActive(true);
                 audioButton.SetActive(true);
                 questionAudio.clip = question.questionAudio;
@@ -69,25 +69,9 @@ public class QuizUI : MonoBehaviour
         
     }
 
-    //IEnumerator PlayAudio()
-    //{
-    //    if (question.questionType == QuestionType.AUDIO)
-    //    {
-    //        questionAudio.PlayOneShot(question.questionAudio);
-
-    //        yield return new WaitForSeconds(question.questionAudio.length + 1f);
-
-    //        StartCoroutine(PlayAudio());
-    //    } else
-    //    {
-    //        StopCoroutine(PlayAudio());
-    //        yield return null;
-    //    }
-    //}
-
     void QuestionContent()
     {
-        qText.transform.localPosition = new Vector3(0f, 130f, 0f);
+        qText.transform.localPosition = new Vector3(0f, 400f, 0f);
         questionImage.transform.gameObject.SetActive(false);
         questionVideo.transform.gameObject.SetActive(false);
         questionAudio.transform.gameObject.SetActive(false);

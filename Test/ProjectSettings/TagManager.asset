@@ -9,6 +9,7 @@ TagManager:
   - MaterialRadioButton
   - music
   - canvas
+  - close
   layers:
   - Default
   - TransparentFX
