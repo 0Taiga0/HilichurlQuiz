@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4645132edefd4c74968a0c941a98fb89, type: 3}
+  m_Name: Audio Database
+  m_EditorClassIdentifier: 
+  _items:
+  - Clip: {fileID: 8300000, guid: 8e1327029268c7f44a4986f6473896af, type: 3}
+    Key: BackSound
+    FolderPath: Abababa\Sounds\
+    Name: BackSound.mp3
+    Preload: 1
+    _id: fa1a412f-bcee-4ff5-bee8-aad54cde8c47
+  - Clip: {fileID: 8300000, guid: 893c9b20d5083cf448e7779fde899069, type: 3}
+    Key: ButtonSound
+    FolderPath: Abababa\Sounds\
+    Name: Button Sound.mp3
+    Preload: 1
+    _id: 3bd0d264-782c-47c1-b8d5-a5c14abeb30c
+  - Clip: {fileID: 8300000, guid: 7d1a2a7d349022e48be20cf421eda873, type: 3}
+    Key: Wizard
+    FolderPath: Abababa\Sounds\
+    Name: Wizard.mp3
+    Preload: 1
+    _id: 4568e007-5480-4595-a483-b555820e1f90
+  - Clip: {fileID: 8300000, guid: f5099a3b9349cd94b951abfef1fad632, type: 3}
+    Key: Paimon
+    FolderPath: Abababa\Sounds\
+    Name: Paimon.mp3
+    Preload: 1
+    _id: 7a408942-b894-4454-b84a-41d5cacf6e80
+  - Clip: {fileID: 8300000, guid: 01f858ea8697fac4e9846cf63b71a1c1, type: 3}
+    Key: Hilich
+    FolderPath: Abababa\Sounds\
+    Name: Hilich.mp3
+    Preload: 1
+    _id: e8ed3ea4-895b-4703-aa12-a9ab0101ae2e
+  - Clip: {fileID: 8300000, guid: 20f5088f854301942957b4cc5ced1c5a, type: 3}
+    Key: Shamach
+    FolderPath: Abababa\Sounds\
+    Name: Shamach.mp3
+    Preload: 1
+    _id: ea18a227-81a1-4785-bf22-24cfa9d8c991
+  - Clip: {fileID: 8300000, guid: db6c1f644ed92fa48bf03c45ae6e00d2, type: 3}
+    Key: FinalSound
+    FolderPath: Abababa\Sounds\
+    Name: TribleUpgradeSound.mp3
+    Preload: 1
+    _id: 5487a968-eb45-4017-b6c9-7f5e7dee5d4b
+  - Clip: {fileID: 8300000, guid: 3b73671c990769042b9c47b63825cdf5, type: 3}
+    Key: ara-ara_NGiqCMS
+    FolderPath: "Abababa\\Sounds\\\u0412\u043E\u043F\u0440\u043E\u0441\u044B\\"
+    Name: ara-ara_NGiqCMS.mp3
+    Preload: 1
+    _id: 5bf3bc78-213d-4a6d-aca7-826b45387ec6
+  - Clip: {fileID: 8300000, guid: f26b27cdbfb34cf4c93ffdc30b83f566, type: 3}
+    Key: keqing-sorya
+    FolderPath: "Abababa\\Sounds\\\u0412\u043E\u043F\u0440\u043E\u0441\u044B\\"
+    Name: keqing-sorya.mp3
+    Preload: 1
+    _id: 3647f667-384b-49d6-8f2f-14866f703658
+  - Clip: {fileID: 8300000, guid: 9808a34a4b16cfe43b4e36c6d52144bf, type: 3}
+    Key: paimon-laughter
+    FolderPath: "Abababa\\Sounds\\\u0412\u043E\u043F\u0440\u043E\u0441\u044B\\"
+    Name: paimon-laughter.mp3
+    Preload: 1
+    _id: c00e9ca6-c2b8-40b3-bb14-c993db8ea3ea
+  - Clip: {fileID: 8300000, guid: b340cc806a7abe04995f1f6fa1ed674e, type: 3}
+    Key: venti-yaho
+    FolderPath: "Abababa\\Sounds\\\u0412\u043E\u043F\u0440\u043E\u0441\u044B\\"
+    Name: venti-yaho.mp3
+    Preload: 1
+    _id: c6044f5a-0afd-4838-938c-5013c3b074d9

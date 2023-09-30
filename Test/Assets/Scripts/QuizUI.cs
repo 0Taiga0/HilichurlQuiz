@@ -2,13 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
+using Plugins.Audio.Core;
 
 public class QuizUI : MonoBehaviour
 {
     [SerializeField] private static GameManagerScript gmScript;
     [SerializeField] private Image questionImage;
     [SerializeField] private VideoPlayer questionVideo;
-    [SerializeField] private AudioSource questionAudio;
+    [SerializeField] private SourceAudio questionAudio;
+    [SerializeField] private AudioSource questionAudio1;
     [SerializeField] private TMP_Text qText;
     [SerializeField] private GameObject audioButton;
     [SerializeField] private Slider questSlider;
@@ -16,11 +18,16 @@ public class QuizUI : MonoBehaviour
     Questions question;
     public static float questSliderValue = 1;
 
+    private void Start()
+    {
+        questSlider.value = questSliderValue;
+        questionAudio.Volume = questSliderValue;
+    }
 
     private void Update()
     {
         questSliderValue = questSlider.value;
-        questionAudio.volume = questSliderValue;
+        questionAudio.Volume = questSliderValue;
         timer += Time.deltaTime;
     }
 
@@ -44,14 +51,14 @@ public class QuizUI : MonoBehaviour
                 QuestionContent();
                 questionVideo.transform.gameObject.SetActive(true);
                 questionVideo.clip = question.questionVideo;
-                questionAudio.Play();
+                //questionAudio.Play();
                 break;
             case QuestionType.AUDIO:
                 QuestionContent();
                 qText.transform.localPosition = new Vector3(0f, 310f, 0f);
                 questionAudio.transform.gameObject.SetActive(true);
                 audioButton.SetActive(true);
-                questionAudio.clip = question.questionAudio;
+                questionAudio1.clip = question.questionAudio;
                 timer = 10;
                 PlayAudio();
                 break;
@@ -61,9 +68,9 @@ public class QuizUI : MonoBehaviour
 
     public void PlayAudio()
     {
-        if (timer > questionAudio.clip.length)
+        if (timer > questionAudio1.clip.length)
         {
-            questionAudio.PlayOneShot(question.questionAudio);
+            questionAudio.PlayOneShot(question.questionAudio.name);
             timer = 0;
         }
         

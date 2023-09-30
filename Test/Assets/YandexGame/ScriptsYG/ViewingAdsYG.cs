@@ -5,6 +5,7 @@ using UnityToolbag;
 
 namespace YG
 {
+    [HelpURL("https://www.notion.so/PluginYG-d457b23eee604b7aa6076116aab647ed#facf33554b8f478d9b03656f789cc38a")]
     public class ViewingAdsYG : MonoBehaviour
     {
         public enum CursorVisible
@@ -42,6 +43,7 @@ namespace YG
             public UnityEvent OpenAd;
             public UnityEvent CloseAd;
         }
+
 
         public enum PauseType { AudioPause, TimeScalePause, CursorActivity, All, NothingToControl };
         [Tooltip("Данный скрипт будет ставить звук или верменную шкалу на паузу при просмотре рекламы взависимости от выбранной настройки Pause Type.\n •  Audio Pause - Ставить звук на паузу.\n •  Time Scale Pause - Останавливать время.\n •  Cursor Activity - Скрывать курсор.\n •  All - Ставить на паузу и звук и время.\n •  Nothing To Control - Не контролировать никакие параметры (подпишите свои методы в  Custom Events).")]

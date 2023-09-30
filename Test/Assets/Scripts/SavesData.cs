@@ -1,4 +1,3 @@
-using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +27,31 @@ namespace YG
             YandexGame.SaveProgress();
         }
 
+        public void SaveQuestion(int qst, int trueAnsw, int condition)
+        {
+            YandexGame.savesData.question = qst;
+            YandexGame.savesData.trueQuestion = trueAnsw;
+            YandexGame.savesData.condition = condition;
+
+            YandexGame.SaveProgress();
+        }
+
+        public void SaveCond(int condition)
+        {
+            YandexGame.savesData.condition = condition;
+
+            YandexGame.SaveProgress();
+        }
+
+        public int[] LoadQuestion()
+        {
+            int[] b = new int[3];
+            b[0] = YandexGame.savesData.question;
+            b[1] = YandexGame.savesData.trueQuestion;
+            b[2] = YandexGame.savesData.condition;
+            return b;
+        }
+
         public void Load() => YandexGame.LoadProgress();
 
         public void GetLoad()
@@ -48,5 +72,6 @@ namespace YG
                     collectionImg[i].sprite = resultDataScriptable.results[i].sprite;
             }
         }
+
     }
 }

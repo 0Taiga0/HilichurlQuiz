@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using YG;
 
@@ -27,5 +25,12 @@ public class AnimeScript : MonoBehaviour
         collAnimStart = !collAnimStart;
     }
 
-
+    public void ClickerOn()
+    {
+        start.SetActive(collAnimStart);
+        collections.SetActive(collAnimStart);
+        gameObject.GetComponent<Animator>().SetBool("ClickAnim", !collAnimStart);
+        GameObject.Find("PlayClicker").GetComponent<Animator>().SetBool("UpDown", !collAnimStart);
+        collAnimStart = !collAnimStart;
+    }
 }
